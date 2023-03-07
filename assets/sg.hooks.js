@@ -1,7 +1,9 @@
 var mytimer;
 var startTimes = 0;
+var isfinished = false;
 
 function showFinish() {
+    isfinished = true;
     clearTimeout(mytimer); //停止计时器
     var dialog = document.getElementById("FinishDialog");
     // 显示对话框
@@ -40,6 +42,8 @@ var SG_Hooks = {
         }
         startTimes++;
 
+        isfinished = false;
+
 	},
 	
 	levelUp : function( level, score, callback){
@@ -55,8 +59,10 @@ var SG_Hooks = {
         // Play68.setRankingScoreDesc(score);
         // updateShare(score);
         console.log('timer stop: ' + mytimer);
-        stopTimer();
-        showOver();
+        stopTimer()
+        if (!isfinished) {
+            showOver();
+        }
 
 	},
 	
