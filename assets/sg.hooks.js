@@ -8,6 +8,9 @@ var SG_Hooks = {
 	start : function(){
         SG_Hooks.debug && console.log('game started');
         SG.trigger({type:'start'});
+        var bgMusic = document.getElementById("bgMusic");
+        bgMusic.play();
+        
 	},
 	
 	levelUp : function( level, score, callback){
