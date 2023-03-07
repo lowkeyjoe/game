@@ -6003,7 +6003,7 @@ function() {
     },
     Softgames.prototype._getGameSlug = function() {
         var e, t;
-        return this.system_id === "sandbox" ? "sandbox_game": (e = /^\/(.*)\//, t = e.exec(window.location.pathname), t[1])
+        return this.system_id === "sandbox" ? "sandbox_game": (e = /^\/(.*)\//, t = e.exec(window.location.pathname))
     },
     Softgames.prototype._requestGameData = function(e, t, n, r) {
         // return t._apiRequest("GET", "" + t.system_id + "/games/" + t.game_slug + ".json/", n, {},
