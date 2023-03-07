@@ -1,3 +1,25 @@
+var mytimer;
+var startTimes = 0;
+
+function showFinish() {
+    clearTimeout(mytimer); //停止计时器
+    var dialog = document.getElementById("FinishDialog");
+    // 显示对话框
+    dialog.showModal();
+}
+
+function showOver() {
+    var dialog = document.getElementById("OverDialog");
+    // 显示对话框
+    dialog.showModal();
+}
+
+
+function stopTimer() {
+    clearTimeout(mytimer); //停止计时器
+    console.log('timer stopped');
+}
+
 var SG_Hooks = {
     debug : true,
     
@@ -8,9 +30,16 @@ var SG_Hooks = {
 	start : function(){
         SG_Hooks.debug && console.log('game started');
         SG.trigger({type:'start'});
+
         var bgMusic = document.getElementById("bgMusic");
         bgMusic.play();
-        
+
+        if ( startTimes > 0) {
+            mytimer = setTimeout(showFinish, 41000);
+            console.log('timer start: ' + mytimer);
+        }
+        startTimes++;
+
 	},
 	
 	levelUp : function( level, score, callback){
@@ -19,10 +48,16 @@ var SG_Hooks = {
 	},
 	
 	gameOver : function( level, score, callback){
+        // stopTimer();
+
         SG_Hooks.debug && console.log('game over:' + level + '/' + score);
 		SG.trigger({type:'gameOver', score:score}, callback);
         // Play68.setRankingScoreDesc(score);
         // updateShare(score);
+        console.log('timer stop: ' + mytimer);
+        stopTimer();
+        showOver();
+
 	},
 	
     gameCompleted : function( score, callback ){
