@@ -18,6 +18,42 @@
 <link rel="shortcut icon" href="icon.png">
 <link rel="icon" href="icon.png">
 
+<!-- polyfill LIB -->
+<dialog id="myDialog">
+	<header>
+		<h2>游戏介绍</h2>
+	</header>
+    <p>您好！欢迎游玩游戏！游戏需要您驾驶一辆汽车躲避迎面而来的车流，保证汽车的安全.
+		操作方式：按住屏幕，拖动手指来控制车辆轨迹。
+		生命上限共有4格, 每次碰撞减少1格生命。当生命全部用完后, 游戏结束, 您将不能进行至实验的下一阶段并领取报酬。
+		游戏的背景音乐是一段广播音频, 请务必打开声音进行游玩, 谢谢！
+		</p>
+    <button id="closeBtn">关闭</button>
+</dialog>
+
+<script>
+    var dialog = document.getElementById("myDialog");
+    var closeBtn = document.getElementById("closeBtn");
+    // 显示对话框
+    dialog.showModal();
+    // 点击关闭按钮关闭对话框
+    closeBtn.addEventListener("click", function() {
+      dialog.close();
+    });
+</script>
+
+<style>
+	dialog {
+	  top: 130px;
+	  width: 480px;
+	  height: 300;
+	  border: 1px solid red;
+	  border-radius: 8px;
+	}
+	dialog::backdrop {
+	  background-color: rgba(126, 201, 236, 0.6);
+	}
+ </style>
 
 <script type="text/javascript">
      window.gameLangs = ['en','de'];
