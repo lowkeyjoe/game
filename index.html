@@ -37,9 +37,28 @@
     // 显示对话框
     dialog.showModal();
     // 点击关闭按钮关闭对话框
-    closeBtn.addEventListener("click", function() {
-      dialog.close();
-    });
+    // closeBtn.addEventListener("click", function() {
+    //   dialog.close();
+    // });
+
+	// closeBtn.addEventListener('click', function() {
+	// 	dialog.close();
+	// }, {passive:false});
+
+
+	closeBtn.addEventListener("touchstart", e => {
+		e.preventDefault();
+		console.log("touchstart event!");
+		dialog.close();
+	})
+
+	closeBtn.addEventListener("click", e => {
+		e.preventDefault();
+		console.log("click event!");
+		dialog.close();
+	})
+
+
 </script>
 
 <style>
