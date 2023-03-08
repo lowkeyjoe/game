@@ -18,15 +18,51 @@
 <link rel="shortcut icon" href="icon.png">
 <link rel="icon" href="icon.png">
 
-<!-- polyfill LIB -->
-<dialog id="myDialog">
+<!-- or use polyfill LIB -->
+
+<style>
+	dialog.launch {
+	  /* top: 130px; */
+	  width: 480px;
+	  height: 300;
+	  border: 1px solid red;
+	  border-radius: 8px;
+	}
+
+	dialog.finish {
+	  /* top: 20%; */
+	  /* width: 80%; */
+	  /* height: 35%; */
+	  border: 1px solid red;
+	  border-radius: 8px;
+	} 
+
+	dialog.over {
+	  /* top: 20%; */
+	  width: 200px;
+	  height: 150px;
+	  border: 1px solid red;
+	  border-radius: 8px;
+	} 
+
+	dialog::backdrop {
+	  background-color: rgba(126, 201, 236, 0.6);
+	}
+
+	#closeBtn {
+		font-size: 125%;
+	}
+
+ </style>
+
+<dialog id="myDialog" class="launch">
 	<header>
 		<h2>游戏介绍</h2>
 	</header>
     <p>您好！欢迎游玩游戏！游戏需要您驾驶一辆汽车躲避迎面而来的车流，保证汽车的安全.
 		操作方式：按住屏幕，拖动手指来控制车辆轨迹。
 		生命上限共有4格, 每次碰撞减少1格生命。当生命全部用完后, 游戏结束, 您将不能进行至实验的下一阶段并领取报酬。
-		游戏的背景音乐是一段广播音频, 请务必打开声音进行游玩, 谢谢！
+		游戏的背景音乐是一段广播音频, 请务必打开声音🔊进行游玩, 谢谢！
 		</p>
     <button id="closeBtn">关闭</button>
 </dialog>
@@ -61,24 +97,7 @@
 
 </script>
 
-<style>
-	dialog {
-	  top: 20%;
-	  width: 80%;
-	  height: 35%;
-	  border: 1px solid red;
-	  border-radius: 8px;
-	}
 
-	dialog::backdrop {
-	  background-color: rgba(126, 201, 236, 0.6);
-	}
-
-	#closeBtn {
-		font-size: 125%;
-	}
-
- </style>
 
 <script type="text/javascript">
      window.gameLangs = ['en','de'];
@@ -99,15 +118,15 @@
     Your browser does not support the audio tag.
   </audio>
   
-<dialog id="FinishDialog">
-  <h2>游戏完成</h2>
+<dialog id="FinishDialog" class="finish">
+  <h2>😊游戏完成</h2>
   <p>请扫码继续完成实验</p>
   <img src="resources/gongneng256.jpg">
   <!-- <button id="closeButton">关闭</button> -->
 </dialog>
 
-<dialog id="OverDialog">
-	<h2>游戏失败</h2>
+<dialog id="OverDialog" class="over">
+	<h2>😢游戏失败</h2>
 	<p>实验结束</p>
   </dialog>
 

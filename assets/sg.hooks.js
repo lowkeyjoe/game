@@ -1,6 +1,7 @@
 var mytimer;
 var startTimes = 0;
 var isfinished = false;
+var timerTick = 41000;
 
 function showFinish() {
     isfinished = true;
@@ -37,7 +38,7 @@ var SG_Hooks = {
         bgMusic.play();
 
         if ( startTimes > 0) {
-            mytimer = setTimeout(showFinish, 41000);
+            mytimer = setTimeout(showFinish, timerTick);
             console.log('timer start: ' + mytimer);
         }
         startTimes++;
@@ -61,6 +62,8 @@ var SG_Hooks = {
         console.log('timer stop: ' + mytimer);
         stopTimer()
         if (!isfinished) {
+            var bgMusic = document.getElementById("bgMusic");
+            bgMusic.pause();
             showOver();
         }
 
