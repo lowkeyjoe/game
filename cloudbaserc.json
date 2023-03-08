@@ -1,0 +1,19 @@
+{
+    "envId": "game-7gy03y6fc760d115",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "region": "ap-guangzhou",
+    "framework": {
+        "name": "app",
+        "plugins": {
+            "website": {
+                "use": "@cloudbase/framework-plugin-website",
+                "inputs": {
+                    "outputPath": "./"
+                }
+            }
+        }
+    }
+}
